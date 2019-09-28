@@ -1,37 +1,33 @@
 open_issue <-
-  function() {
-    if (!dir.exists(t <- here::here("issues", "open"))) dir.create(t, recursive = T))
-    if (!dir.exists(t <- here::here("issues", "closed")) dir.create(t, recursive = T))
+  function(title = rstudioapi::showPrompt("Open Issue", "Issue Title")) {
+  if (is.null(title)) {
+    message("You must provide a title in order to open an issue.")
+    return(invisible(NULL))
+  }
 
-    hash <- issue_hash()
-    filename <- here::here("issues", "open", paste0(hash, ".md"))
+dir_setup()
 
-    title <- rstudioapi::showPrompt(
-      "Open Issue",
-      "Issue Title"
-    )
+hash <- issue_hash()
+filename <- here::here("issuer", "open", paste0(hash, ".md"))
 
-    if (!is.null(title)) {
-      issue <-
-        paste0(
-          title,
-          "\nOpened by: ",
-          username(),
-          "\nWhile viewing: ",
-          basename(rstudioapi::getSourceEditorContext()[["path"]]),
-          "@",
-          rstudioapi::getSourceEditorContext()$selection[[1]]$range$start[1],
-          "\n\nDetail:\n\n"
-        )
+issue <-
+  paste0(
+    title,
+    "\nOpened by: ",
+    username(),
+    "\nWhile viewing: ",
+    basename(rstudioapi::getSourceEditorContext()[["path"]]),
+    "@",
+    rstudioapi::getSourceEditorContext()$selection[[1]]$range$start[1],
+    "\n\nDetail:\n\n"
+  )
 
-      write_utf8(issue, filename)
+write_utf8(issue, filename)
 
-      list_issues()
+list_issues()
 
-      rstudioapi::navigateToFile(filename, line = 7, column = 1)
+rstudioapi::navigateToFile(filename, line = 7, column = 1)
 
-      return(invisible(filename))
-    }
+return(invisible(filename))
 
-    invisible(NULL)
   }

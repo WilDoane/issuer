@@ -12,3 +12,8 @@ Name: List Issues
 Description: List issue
 Binding: list_issues
 Interactive: false
+
+Name: Search Issues
+Description: Searcg issues
+Binding: search_issues
+Interactive: false
