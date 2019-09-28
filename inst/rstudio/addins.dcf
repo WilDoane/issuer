@@ -1,0 +1,14 @@
+Name: Open Issue
+Description: Open a new issue
+Binding: open_issue
+Interactive: false
+
+Name: Close Issue
+Description: Close an issue
+Binding: close_issue
+Interactive: false
+
+Name: List Issues
+Description: List issue
+Binding: list_issues
+Interactive: false

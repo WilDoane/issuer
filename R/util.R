@@ -1,0 +1,39 @@
+username <-
+  function() {
+    if (identical(.Platform$OS.type, "windows"))
+      Sys.getenv("USERNAME")
+    else
+      Sys.getenv("USER")
+  }
+
+issue_hash <-
+  function() {
+    digest::digest(paste(Sys.time(), username()), algo = "sha1")
+  }
+
+write_utf8 <-
+  function(cvec, file = NULL, ...) {
+    if (is.null(file)) {
+      message("You must specify a file path")
+      return(invisible(NULL))
+    }
+
+    writeLines(cvec, file(file, encoding = "UTF-8"), ...)
+  }
+
+read_utf8 <-
+  function(file = NULL, ...) {
+    if (is.null(file)) {
+      message("You must specify a file path")
+      return(invisible(NULL))
+    }
+
+
+    readLines(file(file, encoding = "UTF-8"), ...)
+
+  }
+
+starts_with <-
+  function(cvec) {
+    return(paste0("^", cvec))
+  }
