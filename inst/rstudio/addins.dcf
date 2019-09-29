@@ -17,3 +17,8 @@ Name: Search Issues
 Description: Search issues
 Binding: search_issues
 Interactive: false
+
+Name: Goto Reference
+Description: Goto Reference
+Binding: goto_reference
+Interactive: false

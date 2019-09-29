@@ -10,6 +10,15 @@ open_issue <-
     hash <- issue_hash()
     filename <- here::here("issuer", "open", paste0(hash, ".md"))
 
+    source_filename <-
+      gsub(
+        paste0("^", here::here(), "/"),
+        "",
+        normalizePath(
+          rstudioapi::getSourceEditorContext()[["path"]]
+        )
+      )
+
     issue <-
       paste0(
         title,
@@ -18,7 +27,7 @@ open_issue <-
         "\nOpened at: ",
         Sys.time(),
         "\nWhile viewing: ",
-        basename(rstudioapi::getSourceEditorContext()[["path"]]),
+        source_filename,
         "@",
         rstudioapi::getSourceEditorContext()$selection[[1]]$range$start[1],
         "\n\nDetail:\n\n"
