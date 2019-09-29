@@ -1,11 +1,16 @@
 Package: issuer
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Issue Tracker Using the Local File System
 Version: 0.1.0
 Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Maintainer: William E. J. Doane <wil@DrDoane.com>
+Description: Provides a simple issue tracker hosted on your local
+    file system for those users who don't want or are disallowed
+    from using cloud-based issue trackers.
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
+Imports: 
+    here,
+    rstudioapi,
+    digest
