@@ -13,8 +13,10 @@ open_issue <-
     issue <-
       paste0(
         title,
-        "\nOpened by: ",
+        "\n\nOpened by: ",
         username(),
+        "\nOpened at: ",
+        Sys.time(),
         "\nWhile viewing: ",
         basename(rstudioapi::getSourceEditorContext()[["path"]]),
         "@",
@@ -26,7 +28,7 @@ open_issue <-
 
     list_issues()
 
-    rstudioapi::navigateToFile(filename, line = 7, column = 1)
+    rstudioapi::navigateToFile(filename, line = 9, column = 1)
 
     return(invisible(filename))
 

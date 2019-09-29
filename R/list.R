@@ -4,7 +4,7 @@ list_issues <-
     closed <- list.files(here::here("issuer", "closed"), "\\.md$", full.names = TRUE)
 
     if (length(open) + length(closed) == 0) {
-      message("No issues found")
+      message("No issues found.")
       return(invisible(NULL))
     }
 
