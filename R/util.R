@@ -18,7 +18,11 @@ write_utf8 <-
       return(invisible(NULL))
     }
 
-    writeLines(cvec, file(file, encoding = "UTF-8"), ...)
+    con <- file(file, encoding = "UTF-8")
+    writeLines(cvec, con, ...)
+    close(con)
+
+    invisible(NULL)
   }
 
 read_utf8 <-
@@ -28,9 +32,11 @@ read_utf8 <-
       return(invisible(NULL))
     }
 
+    con <- file(file, encoding = "UTF-8")
+    lines <- readLines(con, ...)
+    close(con)
 
-    readLines(file(file, encoding = "UTF-8"), ...)
-
+    lines
   }
 
 dir_setup <-
