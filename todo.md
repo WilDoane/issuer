@@ -1,7 +1,3 @@
-# Button doesn't react to clicks
-## wejdoane
-
-The *sumbit* button doesn't work.
 
 > R.utils::System$getUsername()
 
@@ -13,7 +9,7 @@ The *sumbit* button doesn't work.
 
 
 issue tracker
-* New Issue
+* Open Issue
 * Close Issue
 * List Open Issues
 * List All Issues

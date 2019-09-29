@@ -33,11 +33,6 @@ read_utf8 <-
 
   }
 
-starts_with <-
-  function(cvec) {
-    return(paste0("^", cvec))
-  }
-
 dir_setup <-
   function() {
     if (!dir.exists(d <- here::here("issuer", "open"))) dir.create(d, recursive = T)
