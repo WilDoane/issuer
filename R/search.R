@@ -1,5 +1,11 @@
 search_issues <-
-  function(target = rstudioapi::showPrompt("Search Issues", "Issue contains...")) {
+  function(target =
+             rstudioapi::showPrompt(
+               "Search Issues",
+               "Issue matches (regular expressions supported):"
+             )
+  ) {
+
     if (is.null(target)) {
       message("You must provide a search expression to search issues.")
       return(invisible(NULL))

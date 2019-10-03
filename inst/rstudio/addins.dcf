@@ -14,11 +14,17 @@ Binding: list_issues
 Interactive: false
 
 Name: Search Issues
-Description: Search issues
+Description: Search issues both open and closed issues
 Binding: search_issues
 Interactive: false
 
-Name: Goto Reference
-Description: Goto Reference
+Name: Goto Issue Source
+Description: Goto Source File Referenced by an issue
 Binding: goto_reference
 Interactive: false
+
+Name: Delete Closed Issues
+Description: Permanently delete all closed issues
+Binding: delete_closed_issues
+Interactive: false
+

@@ -1,5 +1,5 @@
 open_issue <-
-  function(title = rstudioapi::showPrompt("Open Issue", "Issue Title")) {
+  function(title = rstudioapi::showPrompt("Open Issue", "Title for New Issue:")) {
     if (is.null(title)) {
       message("You must provide a title in order to open an issue.")
       return(invisible(NULL))
@@ -8,29 +8,41 @@ open_issue <-
     dir_setup()
 
     hash <- issue_hash()
-    filename <- here::here("issuer", "open", paste0(hash, ".md"))
+    filename <- here::here("issuer", "open", glue::glue(hash, ".md"))
 
-    source_filename <-
-      gsub(
-        paste0("^", here::here(), "/"),
-        "",
-        normalizePath(
-          rstudioapi::getSourceEditorContext()[["path"]]
+    sec <- rstudioapi::getSourceEditorContext()
+
+    if (is.null(sec)) {
+      source_filename <- "an_unknown_document"
+
+      source_loc <- 0
+    } else {
+      source_filename <-
+        gsub(
+          glue::glue("^", here::here(), "/"),
+          "",
+          normalizePath(
+            sec[["path"]],
+            winslash = "/",
+            mustWork = FALSE
+          )
         )
-      )
+
+      if (source_filename == "") source_filename <- "an_unknown_document"
+
+      source_loc <- sec$selection[[1]]$range$start[1]
+    }
+
 
     issue <-
-      paste0(
-        title,
-        "\n\nOpened by: ",
-        username(),
-        "\nOpened at: ",
-        Sys.time(),
-        "\nWhile viewing: ",
-        source_filename,
-        "@",
-        rstudioapi::getSourceEditorContext()$selection[[1]]$range$start[1],
-        "\n\nDetail:\n\n"
+      glue::glue(
+        "{title}\n",
+        "\nOpened by: {username()}",
+        "\nOpened at: {Sys.time()}",
+        "\nWhile viewing: {source_filename}@{source_loc}",
+        "\n\nDetail:\n",
+        sep = "\n\n",
+        .trim = FALSE
       )
 
     write_utf8(issue, filename)
