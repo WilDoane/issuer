@@ -47,7 +47,7 @@ While viewing any issue, activating `Goto Issue Source` will jump to the source 
 
 While viewing an open issue, activating `Close Issue` will move the open issue's .md file to the `issuer/closed/` folder and will update the marker panel.
 
-If you'd like to clean up old, closed issues, activate `Delete Closed Issues`. I don't assign a keyboard shortcut for this becuase it's a destructive process and use of it is rare. If you haven't by this point used Git to commit your issues files to your local or remote repository, then the closed, deleted issues will be permenently lost. 
+If you'd like to clean up old, closed issues, activate `Delete Closed Issues`. I don't assign a keyboard shortcut for this because it's a destructive process and use of it is rare. If you haven't by this point used Git to commit your issues files to your local or remote repository, then the closed, deleted issues will be permanently lost. 
 
 ## Suggested Key Bindings
 
