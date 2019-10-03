@@ -28,7 +28,7 @@ While Git is *often* used with [Github](https://github.com/) or another cloud-ba
 You can install the development version of issuer from [Github](https://github.com/WilDoane/issuer) with:
 
 ``` r
-devtools::install_guthub("WilDoane/issuer")
+devtools::install_github("WilDoane/issuer")
 ```
 
 ## Workflow
