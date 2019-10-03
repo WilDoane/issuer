@@ -16,3 +16,5 @@ Imports:
     rstudioapi,
     digest,
     glue
+URL: https://github.com/WilDoane/issuer
+BugReports: https://github.com/WilDoane/issuer/issues
