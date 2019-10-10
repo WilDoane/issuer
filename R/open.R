@@ -1,13 +1,13 @@
-open_issue <-
+issr_open_issue <-
   function(title = rstudioapi::showPrompt("Open Issue", "Title for New Issue:")) {
     if (is.null(title)) {
       message("You must provide a title in order to open an issue.")
       return(invisible(NULL))
     }
 
-    dir_setup()
+    issr_dir_setup()
 
-    hash <- issue_hash()
+    hash <- issr_issue_hash()
     filename <- here::here("issuer", "open", glue::glue(hash, ".md"))
 
     sec <- rstudioapi::getSourceEditorContext()
@@ -45,9 +45,9 @@ open_issue <-
         .trim = FALSE
       )
 
-    write_utf8(issue, filename)
+    issr_write_utf8(issue, filename)
 
-    list_issues()
+    issr_list_issues()
 
     rstudioapi::navigateToFile(filename, line = 9, column = 1)
 

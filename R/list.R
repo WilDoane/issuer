@@ -1,4 +1,4 @@
-list_issues <-
+issr_list_issues <-
   function() {
     open <- list.files(here::here("issuer", "open"), "\\.md$", full.names = TRUE)
     closed <- list.files(here::here("issuer", "closed"), "\\.md$", full.names = TRUE)
@@ -10,7 +10,7 @@ list_issues <-
 
     filenames <- c(open, closed)
 
-    issues <- sapply(filenames, read_utf8, n = 1)
+    issues <- sapply(filenames, issr_read_utf8, n = 1)
 
     names(issues) <- NULL
 

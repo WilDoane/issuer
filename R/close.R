@@ -1,4 +1,4 @@
-close_issue <-
+issr_close_issue <-
   function(issue = NULL) {
     if (is.null(issue)) issue <- rstudioapi::getSourceEditorContext()[["path"]]
 
@@ -13,7 +13,7 @@ close_issue <-
 
     file.rename(issue, filename_new)
 
-    list_issues()
+    issr_list_issues()
 
     invisible(filename_new)
   }

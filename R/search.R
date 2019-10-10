@@ -1,4 +1,4 @@
-search_issues <-
+issr_search_issues <-
   function(target =
              rstudioapi::showPrompt(
                "Search Issues",
@@ -23,7 +23,7 @@ search_issues <-
 
     filenames <-
       Filter(function(filename) {
-        any(grepl(target, read_utf8(filename, warn = FALSE)))
+        any(grepl(target, issr_read_utf8(filename, warn = FALSE)))
       },
       filenames)
 
@@ -32,7 +32,7 @@ search_issues <-
       return(invisible(NULL))
     }
 
-    issues <- sapply(filenames, read_utf8, n = 1)
+    issues <- sapply(filenames, issr_read_utf8, n = 1)
 
     markers <-
       data.frame(

@@ -1,4 +1,4 @@
-delete_closed_issues <-
+issr_delete_closed_issues <-
   function() {
     confirmed <- rstudioapi::showQuestion(
       "Permanently Delete All Closed Issues",
@@ -12,7 +12,7 @@ delete_closed_issues <-
 
       unlink(closed)
 
-      list_issues()
+      issr_list_issues()
     }
 
     invisible(NULL)
