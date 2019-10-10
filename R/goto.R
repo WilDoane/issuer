@@ -1,4 +1,4 @@
-goto_reference <-
+issr_goto_reference <-
   function(issue = NULL) {
     if (is.null(issue)) issue <- rstudioapi::getSourceEditorContext()[["path"]]
 
