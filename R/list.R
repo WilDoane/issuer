@@ -5,6 +5,13 @@ issr_list_issues <-
 
     if (length(open) + length(closed) == 0) {
       message("No issues found.")
+      
+      rstudioapi::sourceMarkers(
+        "Issuer",
+        list(),
+        basePath = here::here("issuer")
+      )
+      
       return(invisible(NULL))
     }
 
