@@ -37,7 +37,7 @@ issr_open_issue <-
     issue <-
       glue::glue(
         "{title}\n",
-        "\nOpened by: {username()}",
+        "\nOpened by: {issr_username()}",
         "\nOpened at: {Sys.time()}",
         "\nWhile viewing: {source_filename}@{source_loc}",
         "\n\nDetail:\n",
