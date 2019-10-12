@@ -31,6 +31,8 @@ You can install the development version of issuer from [Github](https://github.c
 devtools::install_github("WilDoane/issuer")
 ```
 
+As with any RStudio Addin, you'll need to restart RStudio after installing the Addin package for it to load (at the time of writing, RStudio only checks for and loads addins when RStudio starts up).
+
 ## Workflow
 
 In your typical workflow, you create an RStudio project in which you create one or more R Scripts. As you work, you have ideas for new features to be added; notice bugs that need to be addressed; and have brilliant insights about how to refactor your code to improve efficiency, structure, and expressiveness. (You do... right...?)
